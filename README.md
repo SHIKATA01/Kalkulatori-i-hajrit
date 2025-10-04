@@ -1,8 +1,8 @@
 # Kalkulatori Avancum C#
 
 ## Pershkrim
-Ky asht nji **kalkulator i avancum** i shkruem në C#, që punon në konzolë.  
-Lejon përdoruesin me kry veprime të zakonshme matematikore si mbledhje, zbritje, shumëzim, pjestim, fuqi, rrenjë katrore dhe përqindje.  
+Ky asht nji **kalkulator i avancum** i shkrum ne C#, qe punon në konzole.  
+Lejon njerin me kry veprime të zakonshme matematikore si mbledhje, zbritje, shumëzim, pjestim, fuqi, rrenje katrore dhe perqindje.  
 Ka edhe funksione të memories, që e bajn si nji kalkulator real.
 
 ---
@@ -28,7 +28,7 @@ Ka edhe funksione të memories, që e bajn si nji kalkulator real.
 
 ## Qysh funksionon
 
-1. Programi nis dhe tregon listën me veprime që munesh me perdor.  
+1. Programi nis dhe tregon listën me veprime qe munesh me perdor.  
 2. Ti shkrun **numrin e parë**.  
    - Mundesh me shkru edhe `MR` nese don me marr vleren e ruajtun ne memorie.  
 3. Shkruan **veprimin** (p.sh. `+`, `RNJE`, `%`, etj).  
@@ -40,14 +40,12 @@ Ka edhe funksione të memories, që e bajn si nji kalkulator real.
 
 ##  Funksioni i memories
 
-Kalkulatori ka memorie që ruan një numër, për me e përdor ma vonë.  
-- `M+` – shton numrin aktual në memorie.  
+Kalkulatori ka memorie qe ruan ni numer, per me e perdor ma vone  
+- `M+` – shton numrin aktual ne memorie.  
 - `M-` – zbrit numrin aktual prej memories.  
 - `MC` – fshin krejt memorien.  
 - `MR` – lexon çka ke ruajt në memorie.  
 
-### Shembull:
-```plaintext
 Shkruj numrin e pare: 10
 Shkruj veprimin: M+
 U shtu ne memorie. Tash memoria asht: 10
