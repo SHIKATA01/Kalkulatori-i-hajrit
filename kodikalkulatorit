@@ -1,0 +1,140 @@
+using System;
+
+namespace Kalkulatorishumlooks
+{
+    class Program
+    {
+        static double memoria = 0;
+
+        static void Main()
+        {
+            Console.Title = "Kalkulatori i hajrit";
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            while (true)
+            {
+                Console.WriteLine("\n===== KALKULATORI I AVANCUAR =====");
+                Console.WriteLine("Veprimet e mundshme:");
+                Console.WriteLine(" +   Mbledhje");
+                Console.WriteLine(" -   Zbritje");
+                Console.WriteLine(" *   Shumëzim");
+                Console.WriteLine(" /   Pjestim");
+                Console.WriteLine(" ^   Fuqi (numri1 ngritur në numri2)");
+                Console.WriteLine(" √   Rrënjë katrore");
+                Console.WriteLine(" %   Përqindje (a % e b)");
+                Console.WriteLine(" MC  Fshi memorien");
+                Console.WriteLine(" MR  Lexo memorien");
+                Console.WriteLine(" M+  Shto në memorie");
+                Console.WriteLine(" M-  Zbrit nga memoria");
+                Console.WriteLine(" dil  Dil nga kalkulatori");
+                Console.WriteLine("=================================");
+
+                Console.Write("\nShkruaj numrin e parë (ose MR për të lexuar memorien): ");
+                string hyrja1 = Console.ReadLine();
+
+                if (hyrja1.Equals("dil", StringComparison.OrdinalIgnoreCase))
+                    break;
+
+                double numri1;
+                if (hyrja1.Equals("MR", StringComparison.OrdinalIgnoreCase))
+                {
+                    numri1 = memoria;
+                    Console.WriteLine($"Lexuar nga memoria: {memoria}");
+                }
+                else if (!double.TryParse(hyrja1, out numri1))
+                {
+                    Console.WriteLine("❌ Numër i pavlefshëm!");
+                    continue;
+                }
+
+                Console.Write("Shkruaj veprimin: ");
+                string veprimi = Console.ReadLine();
+
+                double numri2 = 0;
+                if (veprimi != "√" && !veprimi.Equals("MC", StringComparison.OrdinalIgnoreCase)
+                    && !veprimi.Equals("MR", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.Write("Shkruaj numrin e dytë: ");
+                    string hyrja2 = Console.ReadLine();
+                    if (!double.TryParse(hyrja2, out numri2))
+                    {
+                        Console.WriteLine(" Numër i pavlefshëm!");
+                        continue;
+                    }
+                }
+
+                double rezultati = 0;
+                bool vlefshëm = true;
+
+                switch (veprimi)
+                {
+                    case "+":
+                        rezultati = numri1 + numri2;
+                        break;
+                    case "-":
+                        rezultati = numri1 - numri2;
+                        break;
+                    case "*":
+                        rezultati = numri1 * numri2;
+                        break;
+                    case "/":
+                        if (numri2 == 0)
+                        {
+                            Console.WriteLine(" Nuk mund të pjestosh me zero!");
+                            vlefshëm = false;
+                        }
+                        else rezultati = numri1 / numri2;
+                        break;
+                    case "^":
+                        rezultati = Math.Pow(numri1, numri2);
+                        break;
+                    case "RNJE":
+                    case "rnje":
+                        if (numri1 < 0)
+                        {
+                            Console.WriteLine("❌ Nuk mund të marrësh rrënjën katrore të një numri negativ!");
+                            vlefshëm = false;
+                        }
+                        else rezultati = Math.Sqrt(numri1);
+                        break;
+
+                    case "%":
+                        rezultati = (numri1 / 100) * numri2;
+                        break;
+                    case "MC":
+                        memoria = 0;
+                        Console.WriteLine(" Memoria u fshi!");
+                        vlefshëm = false;
+                        break;
+                    case "MR":
+                        Console.WriteLine($"Memoria: {memoria}");
+                        vlefshëm = false;
+                        break;
+                    case "M+":
+                        memoria += numri1;
+                        Console.WriteLine($"U shtua në memorie. Memoria tani: {memoria}");
+                        vlefshëm = false;
+                        break;
+                    case "M-":
+                        memoria -= numri1;
+                        Console.WriteLine($"U zbrit nga memoria. Memoria tani: {memoria}");
+                        vlefshëm = false;
+                        break;
+                    default:
+                        Console.WriteLine(" Veprim i panjohur!");
+                        vlefshëm = false;
+                        break;
+                }
+
+                if (vlefshëm)
+                {
+                    Console.WriteLine($" Rezultati: {rezultati}");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine(" Po dal nga kalkulatori. Mirupafshim!");
+        }
+    }
+}
