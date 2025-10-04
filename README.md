@@ -2,12 +2,12 @@
 
 ## Pershkrim
 Ky asht nji **kalkulator i avancum** i shkrum ne C#, qe punon në konzole.  
-Lejon njerin me kry veprime të zakonshme matematikore si mbledhje, zbritje, shumëzim, pjestim, fuqi, rrenje katrore dhe perqindje.  
+Lejon njerin me kry veprime normale matematikore si mbledhje, zbritje, shumezim, pjestim, fuqi, rrenje katrore dhe perqindje.  
 Ka edhe funksione të memories, që e bajn si nji kalkulator real.
 
 ---
 
-## Funksionet që ofron
+## Funksionet qe ofron
 
 | Komanda | Pershkrimi |
 |----------|-------------|
